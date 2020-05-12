@@ -1,16 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Vote, type: :model do
-  let(:user) { User.new(
-    first_name: 'Test',
-    last_name: 'User',
-    email: 'testuser@example.com',
-    password: 'testuser123'
-  )}
-  
+  let(:user) { 
+    User.new(first_name: 'Test', last_name: 'User', email: 'testuser@example.com', password: 'testuser123')
+  }
+
   before(:each) do
     @article = user.articles.build(
-      title: 'Test Article', 
+      title: 'Test Article',
       text: 'This is some sample content',
       category: 'info'
     )

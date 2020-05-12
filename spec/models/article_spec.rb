@@ -1,18 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-  let(:user) { User.new(
-    first_name: 'Test',
-    last_name: 'User',
-    email: 'testuser@example.com',
-    password: 'testuser123'
-  )}
-  
-  let(:article) { user.articles.build(
-    title: 'Test Article',
-    text: 'This is some sample content',
-    category: 'info'
-  )}
+  let(:user) 
+    User.new(
+      first_name: 'Test',
+      last_name: 'User',
+      email: 'testuser@example.com',
+      password: 'testuser123'
+    )
+
+  let(:article) 
+    user.articles.build(
+      title: 'Test Article',
+      text: 'This is some sample content',
+      category: 'info'
+    )
 
   it 'should have a title present' do
     expect(article).to be_valid

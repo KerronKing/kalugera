@@ -1,14 +1,13 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { User.new(
-    first_name: 'Test',
-    last_name: 'User',
-    email: 'testuser@example.com',
-    password: 'testuser123'
-  )}
+  let(:user) 
+    User.new(
+      first_name: 'Test',
+      last_name: 'User',
+      email: 'testuser@example.com',
+      password: 'testuser123'
+    )
 
   it 'should have a name present' do
     expect(user).to be_valid
