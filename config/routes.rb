@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  get 'votes/new'
-  get 'votes/create'
-  get 'votes/destroy'
-  get 'users/new'
-  get 'users/create'
-  get 'users/show'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'articles#index'
+  resources :users
+  resources :articles
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  get '/current_events', to: 'articles#current'
+  get '/business', to: 'articles#business'
+  get '/culture', to: 'articles#culture'
+  get '/sports', to: 'articles#sports'
+  get '/opinion', to: 'articles#opinion'
 end

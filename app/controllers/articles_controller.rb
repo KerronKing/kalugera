@@ -23,6 +23,26 @@ class ArticlesController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def current_events
+    @article = Article.where("category = current").order(created_at: :desc)
+  end
+
+  def business
+    @article = Article.where("category = business").order(created_at: :desc)
+  end
+
+  def culture
+    @article = Article.where("category = culture").order(created_at: :desc)
+  end
+
+  def sports
+    @article = Article.where("category = sports").order(created_at: :desc)
+  end
+
+  def opinion
+    @article = Article.where("category = opinion").order(created_at: :desc)
+  end
+
   def destroy
     @article.destroy
     flash[:success] = 'Article deleted'
