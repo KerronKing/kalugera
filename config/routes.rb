@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get '/current_events', to: 'articles#current'
+  get '/news', to: 'articles#news'
   get '/business', to: 'articles#business'
-  get '/culture', to: 'articles#culture'
+  get '/entertainment', to: 'articles#entertainment'
+  get '/tech', to: 'articles#tech'
   get '/sports', to: 'articles#sports'
   get '/opinion', to: 'articles#opinion'
 end

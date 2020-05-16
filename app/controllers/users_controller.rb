@@ -5,6 +5,15 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    if @user.save
+      flash[:success] = 'User created'
+      log_in @user
+      remember @user
+      redirect_to root_path
+    else
+      flash[:danger] = 'Error creating user'
+      render 'new'
+    end
   end
 
   def show
@@ -15,6 +24,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:first_name, :last_name, :email, :password)
   end
 end

@@ -1,0 +1,7 @@
+<h2>Submit an article</h2>
+
+<%= form_with model: @article, method: "post" do |f| %>
+  <%= f.label "Title" %><br />
+  <%= f.text_area :text, placeholder: "Enter article content here", size: "100x100" %><br />
+  <%= f.submit "Post" %>
+<% end %>

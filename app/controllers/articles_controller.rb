@@ -23,16 +23,20 @@ class ArticlesController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def current_events
-    @article = Article.where("category = current").order(created_at: :desc)
+  def news
+    @article = Article.where("category = news").order(created_at: :desc)
   end
 
   def business
     @article = Article.where("category = business").order(created_at: :desc)
   end
 
-  def culture
-    @article = Article.where("category = culture").order(created_at: :desc)
+  def entertainment
+    @article = Article.where("category = entertainment").order(created_at: :desc)
+  end
+
+  def tech
+    @article = Article.where("category = tech").order(created_at: :desc)
   end
 
   def sports
