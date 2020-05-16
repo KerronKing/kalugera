@@ -1,0 +1,16 @@
+<nav>
+  <span>KLG</span>
+  <ul>
+    <li>Current</li>
+    <li>Business</li>
+    <li>Culture</li>
+    <li>Sports</li>
+    <li>Opinion</li>
+  </ul>
+  <% if logged_in? %>
+    <span><%= link_to "Log out", logout_path, method: :delete %></span>
+  <% else %>
+    <span><%= link_to "Log in", login_path %></span>
+    <span><%= link_to "Sign up", new_user_path %></span>
+  <% end %>
+</nav>
