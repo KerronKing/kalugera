@@ -19,31 +19,32 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def news
-    @article = Article.where("category = news").order(created_at: :desc)
+    @articles = Article.where(category: 'news').order(created_at: :desc)
+    # @articles = Article.all
   end
 
   def business
-    @article = Article.where("category = business").order(created_at: :desc)
+    @articles = Article.where(category: 'business').order(created_at: :desc)
   end
 
   def entertainment
-    @article = Article.where("category = entertainment").order(created_at: :desc)
+    @articles = Article.where(category: 'entertainment').order(created_at: :desc)
   end
 
   def tech
-    @article = Article.where("category = tech").order(created_at: :desc)
+    @articles = Article.where(category: 'tech').order(created_at: :desc)
   end
 
   def sports
-    @article = Article.where("category = sports").order(created_at: :desc)
+    @articles = Article.where(category: 'sports').order(created_at: :desc)
   end
 
   def opinion
-    @article = Article.where("category = opinion").order(created_at: :desc)
+    @articles = Article.where(category: 'opinion').order(created_at: :desc)
   end
 
   def destroy
