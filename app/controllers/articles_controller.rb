@@ -24,7 +24,6 @@ class ArticlesController < ApplicationController
 
   def news
     @articles = Article.where(category: 'news').order(created_at: :desc)
-    # @articles = Article.all
   end
 
   def business
