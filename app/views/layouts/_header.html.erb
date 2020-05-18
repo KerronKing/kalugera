@@ -1,0 +1,21 @@
+<nav>
+  <span><%= link_to "KLG", root_path %></span>
+  <ul>
+    <li><%= link_to "News", news_path %></li>
+    <li><%= link_to "Business", business_path %></li>
+    <li><%= link_to "Entertainment", entertainment_path %></li>
+    <li><%= link_to "Tech", tech_path %></li>
+    <li><%= link_to "Sports", sports_path %></li>
+    <li><%= link_to "Opinion", opinion_path %></li>
+  </ul>
+  <div>
+    <% if logged_in? %>
+      <span><%= link_to "Profile", user_path(current_user) %></span>
+      <span><%= link_to "New Article", new_article_path %></span>
+      <span><%= link_to "Log out", logout_path, method: :delete %></span>
+    <% else %>
+      <span><%= link_to "Log in", login_path %></span>
+      <span><%= link_to "Sign up", new_user_path %></span>
+    <% end %>
+  </div>
+</nav>

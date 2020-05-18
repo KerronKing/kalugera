@@ -4,8 +4,7 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @user = current_user
-    @article = @user.articles.build(article_params)
+    @article = current_user.articles.build
   end
 
   def create
@@ -20,7 +19,31 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @article = Article.find(params[:id])
+  end
+
+  def news
+    @articles = Article.where(category: 'news').order(created_at: :desc)
+  end
+
+  def business
+    @articles = Article.where(category: 'business').order(created_at: :desc)
+  end
+
+  def entertainment
+    @articles = Article.where(category: 'entertainment').order(created_at: :desc)
+  end
+
+  def tech
+    @articles = Article.where(category: 'tech').order(created_at: :desc)
+  end
+
+  def sports
+    @articles = Article.where(category: 'sports').order(created_at: :desc)
+  end
+
+  def opinion
+    @articles = Article.where(category: 'opinion').order(created_at: :desc)
   end
 
   def destroy

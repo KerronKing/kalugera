@@ -1,8 +1,4 @@
 class VotesController < ApplicationController
-  def new
-    @vote = current_user.votes.build
-  end
-
   def create
     @vote = current_user.votes.build(vote_params)
     redirect_back(fallback_location: root_path)
