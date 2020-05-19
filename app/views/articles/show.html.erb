@@ -1,5 +1,8 @@
 <div>
   <p><% @article.title %></p>
+  <% if @article.image.attached? %>
+    <img src="<%= (url_for(@article.image)) %>">
+  <% end %>
   <p><% @article.category %></p>
 </div>
 <div>

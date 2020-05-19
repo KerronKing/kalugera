@@ -3,6 +3,8 @@
 <%= form_with model: @article, method: "post" do |f| %>
   <%= f.label "Title" %><br />
   <%= f.text_field :title %><br />
+  <%= f.label "Title Image" %><br />
+  <%= f.text_field :image %><br />
   <%= f.label "Category" %><br />
   <%= f.select :category, options_for_select([
     ['news', 'news'],
