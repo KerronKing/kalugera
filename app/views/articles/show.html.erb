@@ -1,10 +1,25 @@
 <div>
-  <p><% @article.title %></p>
+  <p><%= @article.title %></p>
+  <p><%= @article.votes.count %></p>
+  <% current_vote = @article.votes.find { |vote| vote.user_id == current_user.id } %>
+  <% if current_vote %>
+    <%# <%= form_with(model: Vote, method: :delete) do |f| %>
+      <%# <%= f.hidden_field :article_id, value: @article.id %>
+      <%# <%= f.submit 'Down-vote' %>
+    <%# <% end %>
+    <%= button_to 'Down-vote', article_vote_path(@article, current_vote), method: :delete %>
+  <% else %>
+    <%# <%= form_with(model: Vote, method: :post) do |f| %>
+      <%# <%= f.hidden_field :article_id, value: @article.id %>
+      <%# <%= f.submit 'Up-vote' %>
+    <%# <% end %>
+    <%= button_to 'Up-vote', article_votes_path(@article), method: :post %>
+  <% end %>
   <% if @article.image.attached? %>
     <img src="<%= (url_for(@article.image)) %>">
   <% end %>
-  <p><% @article.category %></p>
+  <p><%= @article.category %></p>
 </div>
 <div>
-  <p><% @article.text %></p>
+  <p><%= @article.text %></p>
 </div>

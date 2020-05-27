@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @votes = @article.votes
   end
 
   def news
