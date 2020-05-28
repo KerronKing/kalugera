@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  # before_action :remove_attachment, only: [:destroy]
+
   def index
     @articles = Article.all
   end
@@ -13,6 +15,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
       flash[:success] = 'Article created'
+      redirect_to article_path(@article)
     else
       flash[:danger] = 'Error creating article'
     end
@@ -48,7 +51,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    @article = Article.find(params[:id])
     @article.destroy
+    redirect_to root_path
     flash[:success] = 'Article deleted'
   end
 
@@ -57,4 +62,9 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :image, :text, :category)
   end
+
+  # def remove_attachment
+  #   @image = ActiveStorage::Blob.find_signed(params[:id])
+  #   @image.purge_later
+  # end
 end
