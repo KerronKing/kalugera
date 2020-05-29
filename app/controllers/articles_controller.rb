@@ -1,8 +1,10 @@
 class ArticlesController < ApplicationController
-  # before_action :remove_attachment, only: [:destroy]
 
   def index
     @articles = Article.all
+    @top = Article.joins(:votes)
+    .group('votes.article_id, articles.created_at, articles.id')
+    puts @top
   end
 
   def new
@@ -62,9 +64,4 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :image, :text, :category)
   end
-
-  # def remove_attachment
-  #   @image = ActiveStorage::Blob.find_signed(params[:id])
-  #   @image.purge_later
-  # end
 end

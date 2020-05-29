@@ -1,5 +1,15 @@
 <h1>Kalugera</h1>
 <div>
+  <% if @top %>
+    <div>
+      <h2><%= @top.title %></h2>
+      <p><%= @top.content %></p>
+    </div>
+  <% else %>
+    <div>Testing top voted article functionality...</div>
+  <% end %>
+</div>
+<div>
   <div>
     <h2><%= link_to "News", news_path %></h2>
   </div>
