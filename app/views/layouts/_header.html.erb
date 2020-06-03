@@ -1,5 +1,7 @@
 <nav>
-  <span><%= link_to "KLG", root_path %></span>
+  <div class="logo">
+    <span><%= link_to "Kalugera", root_path %></span>
+  </div>
   <ul>
     <li><%= link_to "News", news_path %></li>
     <li><%= link_to "Business", business_path %></li>
@@ -8,7 +10,7 @@
     <li><%= link_to "Sports", sports_path %></li>
     <li><%= link_to "Opinion", opinion_path %></li>
   </ul>
-  <div>
+  <div class="logs">
     <% if logged_in? %>
       <span><%= link_to "Profile", user_path(current_user) %></span>
       <span><%= link_to "New Article", new_article_path %></span>

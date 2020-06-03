@@ -1,12 +1,16 @@
 @import './mixins';
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 // Header
 nav {
-  border-radius: 10px;
+  background-color: #FFFAEC;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  @include box-shadow;
   ul {
     list-style: none;
     li {
@@ -50,10 +54,16 @@ h1 { text-align: center; }
   grid-template-rows: 1fr 1fr 1fr;
   gap: 1px 1px;
   grid-template-areas: "main main main sports" "main main main tech" "news business entertainment opinion";
+  a {
+    color: white;
+    margin-left: 1rem;
+  }
 }
 
 .main {
+  color: white;
   grid-area: main;
+  height: 26.5rem;
   @include background-preferences;
 }
 
@@ -86,4 +96,10 @@ h1 { text-align: center; }
 .news {
   grid-area: news;
   @include background-preferences;
+}
+
+footer {
+  background-color: #FFFAEC;
+  line-height: 2;
+  text-align: center;
 }

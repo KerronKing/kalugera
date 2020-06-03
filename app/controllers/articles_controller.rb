@@ -2,9 +2,13 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-    @top = Article.joins(:votes)
-    .group('votes.article_id, articles.created_at, articles.id')
-    puts @top
+    @top = Article.first
+    @news = Article.where(category: 'news').first
+    @business = Article.where(category: 'business').first
+    @ent = Article.where(category: 'entertainment').first
+    @tech = Article.where(category: 'tech').first
+    @sports = Article.where(category: 'sports').first
+    @op = Article.where(category: 'opinion').first
   end
 
   def new
