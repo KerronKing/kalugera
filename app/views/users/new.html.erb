@@ -1,8 +1,12 @@
-<h1>Sign Up</h1>
-<%= form_with model: @user, method: "post" do |f| %>
-  <%= f.text_field :first_name, placeholder: "Enter your first name" %><br />
-  <%= f.text_field :last_name, placeholder: "Enter your last name" %><br />
-  <%= f.email_field :email, placeholder: "Enter your email" %><br />
-  <%= f.password_field :password, placeholder: "Enter your password" %><br />
-  <%= f.submit "Create" %>
-<% end %>
+<div>
+  <h1>Sign Up</h1>
+  <div>
+    <%= form_with model: @user, method: "post" do |f| %>
+      <%= f.text_field :first_name, placeholder: "Enter your first name" %><br />
+      <%= f.text_field :last_name, placeholder: "Enter your last name" %><br />
+      <%= f.email_field :email, placeholder: "Enter your email" %><br />
+      <%= f.password_field :password, placeholder: "Enter your password" %><br />
+      <%= f.submit "Create" %>
+    <% end %>
+  </div>
+</div>

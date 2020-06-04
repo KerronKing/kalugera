@@ -1,13 +1,18 @@
 @import './mixins';
-
+@import './variables';
+// * {
+//   border: 0.25rem solid !important;
+// }
 body {
+  background-color: $main-area;
+  font-family: cursive;
   margin: 0;
   padding: 0;
 }
 
 // Header
 nav {
-  background-color: #FFFAEC;
+  background-color: $main-background;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -83,7 +88,6 @@ h1 { text-align: center; }
 }
 
 .entertainment {
-  // border: 1px solid;
   grid-area: entertainment;
   @include background-preferences;
 }
@@ -98,8 +102,36 @@ h1 { text-align: center; }
   @include background-preferences;
 }
 
+// footer
+
 footer {
-  background-color: #FFFAEC;
+  background-color: $main-background;
+  bottom: 0;
   line-height: 2;
+  position: fixed;
   text-align: center;
+  width: 100%;
+}
+
+// Forms
+
+.form-area {
+  // background-color: red;
+  text-align: center;
+  form {
+    margin: 0 auto;
+    padding: 1.5rem;
+    width: 40%;
+    input {
+      border: 1px solid;
+      border-radius: 15px;
+      margin: 0 auto;
+      margin-bottom: 2.5rem;
+      padding: 0.5rem;
+      width: 50%;
+    }
+  }
+  // button {
+  //   width: 20%;
+  // }
 }
