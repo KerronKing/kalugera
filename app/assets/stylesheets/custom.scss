@@ -116,7 +116,6 @@ footer {
 // Forms
 
 .form-area {
-  // background-color: red;
   text-align: center;
   form {
     margin: 0 auto;
@@ -130,8 +129,14 @@ footer {
       padding: 0.5rem;
       width: 50%;
     }
+    select {
+      border-radius: 15px;
+      margin-bottom: 2.5rem;
+      padding: 0.5rem;
+    }
+    textarea {
+      border-radius: 15px;
+      margin-bottom: 2.5rem;
+    }
   }
-  // button {
-  //   width: 20%;
-  // }
 }
