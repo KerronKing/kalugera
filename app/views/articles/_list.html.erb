@@ -1,9 +1,11 @@
-<div>
+<div class="article-list">
   <% @articles.each do |article| %>
-    <p><%= link_to article.title, article_path(article) %></p>
-    <% if article.image.attached? %>
-      <img src="<%= (url_for(article.image)) %>">
-    <% end %>
-    <p>Author: <%= article.user.first_name %> <%= article.user.last_name %></p>
+    <div class="article">
+      <h2><%= link_to article.title, article_path(article) %></h2>
+      <% if article.image.attached? %>
+        <img src="<%= (url_for(article.image)) %>">
+      <% end %>
+      <p>Written by: <%= article.user.first_name %> <%= article.user.last_name %></p>
+      </div>
   <% end %>
 </div>

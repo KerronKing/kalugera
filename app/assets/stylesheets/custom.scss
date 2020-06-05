@@ -122,7 +122,7 @@ footer {
     padding: 1.5rem;
     width: 40%;
     input {
-      border: 1px solid;
+      border: 1px solid $border-shade;
       border-radius: 15px;
       margin: 0 auto;
       margin-bottom: 2.5rem;
@@ -130,13 +130,29 @@ footer {
       width: 50%;
     }
     select {
+      border: 1px solid $border-shade;
       border-radius: 15px;
       margin-bottom: 2.5rem;
       padding: 0.5rem;
     }
     textarea {
+      border: 1px solid $border-shade;
       border-radius: 15px;
       margin-bottom: 2.5rem;
     }
+  }
+}
+
+// Category Pages
+
+.article-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 1rem;
+  .article {
+    border: 1px solid $border-shade;
+    border-radius: 15px;
+    padding: 1rem;
   }
 }
