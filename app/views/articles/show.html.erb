@@ -24,8 +24,5 @@
 <div>
   <% if user_article %>
     <%= button_to 'Delete', article_path(@article, user_article), method: :delete %>
-    <%# <%= form_with url: article_path, method: 'delete' do |f| %>
-      <%# <% f.submit 'Delete' %>
-    <%# <% end %>
   <% end %>
 </div>

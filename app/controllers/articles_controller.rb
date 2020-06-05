@@ -2,13 +2,13 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-    @top = Article.first
-    @news = Article.where(category: 'news').first
-    @business = Article.where(category: 'business').first
-    @ent = Article.where(category: 'entertainment').first
-    @tech = Article.where(category: 'tech').first
-    @sports = Article.where(category: 'sports').first
-    @op = Article.where(category: 'opinion').first
+    @top = Article.last
+    @news = Article.where(category: 'news').last
+    @business = Article.where(category: 'business').last
+    @ent = Article.where(category: 'entertainment').last
+    @tech = Article.where(category: 'tech').last
+    @sports = Article.where(category: 'sports').last
+    @op = Article.where(category: 'opinion').last
   end
 
   def new
