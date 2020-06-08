@@ -1,17 +1,24 @@
 class VotesController < ApplicationController
+  before_action :find_article
+  before_action :find_vote, only: [:destroy]
+
   def create
-    @vote = current_user.votes.build(vote_params)
-    redirect_back(fallback_location: root_path)
+    @vote = @article.votes.create(user_id: current_user.id)
+    redirect_to article_path(@article)
   end
 
   def destroy
     @vote.destroy
-    redirect_back(fallback_location: root_path)
+    redirect_to article_path(@article)
   end
 
   private
 
-  def vote_params
-    params.require(:vote).permit(:user_id, :article_id)
+  def find_article
+    @article = Article.find(params[:article_id])
+  end
+
+  def find_vote
+    @vote = @article.votes.find(params[:id])
   end
 end

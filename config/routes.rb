@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root 'articles#index'
   resources :users
   resources :articles
+  resources :votes
+  resources :articles do
+    resources :votes
+  end
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

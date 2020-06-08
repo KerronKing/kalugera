@@ -1,6 +1,14 @@
 class ArticlesController < ApplicationController
+
   def index
     @articles = Article.all
+    @top = Article.last
+    @news = Article.where(category: 'news').last
+    @business = Article.where(category: 'business').last
+    @ent = Article.where(category: 'entertainment').last
+    @tech = Article.where(category: 'tech').last
+    @sports = Article.where(category: 'sports').last
+    @op = Article.where(category: 'opinion').last
   end
 
   def new
@@ -13,6 +21,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
       flash[:success] = 'Article created'
+      redirect_to article_path(@article)
     else
       flash[:danger] = 'Error creating article'
     end
@@ -20,6 +29,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @votes = @article.votes
   end
 
   def news
@@ -47,7 +57,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    @article = Article.find(params[:id])
     @article.destroy
+    redirect_to root_path
     flash[:success] = 'Article deleted'
   end
 

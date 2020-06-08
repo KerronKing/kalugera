@@ -1,20 +1,22 @@
-<h2>Submit an article</h2>
+<div class="form-area">
+  <h2>Submit an article</h2>
+  <div>
+    <%= form_with model: @article, method: "post" do |f| %>
+      <%= f.text_field :title, placeholder: 'Enter article title here' %><br />
+      <%= f.file_field :image %><br />
+      <%= f.label "Category" %><br />
+      <%= f.select :category, options_for_select([
+        ['news', 'news'],
+        ['business', 'business'],
+        ['entertainment', 'entertainment'],
+        ['tech', 'tech'],
+        ['sports', 'sports'],
+        ['opinion', 'opinion']])
+      %><br />
+      <%= f.label "Article Content" %><br />
+      <%= f.text_area :text, placeholder: "Enter article content here", size: "70x20" %><br />
+      <%= f.submit "Post" %>
+    <% end %>
+  </div>
+</div>
 
-<%= form_with model: @article, method: "post" do |f| %>
-  <%= f.label "Title" %><br />
-  <%= f.text_field :title %><br />
-  <%= f.label "Title Image" %><br />
-  <%= f.text_field :image %><br />
-  <%= f.label "Category" %><br />
-  <%= f.select :category, options_for_select([
-    ['news', 'news'],
-    ['business', 'business'],
-    ['entertainment', 'entertainment'],
-    ['tech', 'tech'],
-    ['sports', 'sports'],
-    ['opinion', 'opinion']])
-  %><br />
-  <%= f.label "Article Content" %><br />
-  <%= f.text_area :text, placeholder: "Enter article content here", size: "50x50" %><br />
-  <%= f.submit "Post" %>
-<% end %>

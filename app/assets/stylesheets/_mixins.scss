@@ -1,0 +1,11 @@
+@mixin box-shadow {
+  -webkit-box-shadow: -2px 0px 33px 0px rgba(166,164,166,1);
+  -moz-box-shadow: -2px 0px 33px 0px rgba(166,164,166,1);
+  box-shadow: -2px 0px 33px 0px rgba(166,164,166,1);
+}
+
+@mixin background-preferences {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -1,0 +1,158 @@
+@import './mixins';
+@import './variables';
+// * {
+//   border: 0.25rem solid !important;
+// }
+body {
+  background-color: $main-area;
+  font-family: cursive;
+  margin: 0;
+  padding: 0;
+}
+
+// Header
+nav {
+  background-color: $main-background;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  ul {
+    list-style: none;
+    li {
+      display: inline-block;
+      margin-right: 1.5rem;
+    }
+  }
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: purple;
+  font-size: 101%;
+}
+.logo {
+  font-family: cursive;
+  font-size: 1.2rem;
+  left: 1rem;
+  position: relative;
+  top: 0.7rem;
+}
+.logs {
+  position: relative;
+  right: 1rem;
+  top: 1rem;
+  span {
+    margin-right: 1rem;
+  }
+}
+img {
+  height: 200px;
+  margin-bottom: -0.25rem;
+  width: 310px;
+}
+h1 { text-align: center; }
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "main main main sports" "main main main tech" "news business entertainment opinion";
+  a {
+    color: white;
+    margin-left: 1rem;
+  }
+}
+
+.main {
+  color: white;
+  grid-area: main;
+  height: 26.5rem;
+  @include background-preferences;
+}
+
+.sports {
+  grid-area: sports;
+  @include background-preferences;
+}
+
+.tech {
+  grid-area: tech;
+  @include background-preferences;
+}
+
+.opinion {
+  grid-area: opinion;
+  @include background-preferences;
+}
+
+.entertainment {
+  grid-area: entertainment;
+  @include background-preferences;
+}
+
+.business {
+  grid-area: business;
+  @include background-preferences;
+}
+
+.news {
+  grid-area: news;
+  @include background-preferences;
+}
+
+// footer
+
+footer {
+  background-color: $main-background;
+  bottom: 0;
+  line-height: 2;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
+// Forms
+
+.form-area {
+  text-align: center;
+  form {
+    margin: 0 auto;
+    padding: 1.5rem;
+    width: 40%;
+    input {
+      border: 1px solid $border-shade;
+      border-radius: 15px;
+      margin: 0 auto;
+      margin-bottom: 2.5rem;
+      padding: 0.5rem;
+      width: 50%;
+    }
+    select {
+      border: 1px solid $border-shade;
+      border-radius: 15px;
+      margin-bottom: 2.5rem;
+      padding: 0.5rem;
+    }
+    textarea {
+      border: 1px solid $border-shade;
+      border-radius: 15px;
+      margin-bottom: 2.5rem;
+    }
+  }
+}
+
+// Category Pages
+
+.article-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 1rem;
+  .article {
+    border: 1px solid $border-shade;
+    border-radius: 15px;
+    padding: 1rem;
+  }
+}
