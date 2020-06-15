@@ -1,14 +1,14 @@
 class ArticlesController < ApplicationController
 
   def index
-    @articles = Article.all
-    @top = Article.last
-    @news = Article.where(category: 'news').last
-    @business = Article.where(category: 'business').last
-    @ent = Article.where(category: 'entertainment').last
-    @tech = Article.where(category: 'tech').last
-    @sports = Article.where(category: 'sports').last
-    @op = Article.where(category: 'opinion').last
+    @articles = Article.all.with_attached_image
+    # @top = Article.last
+    # @news = Article.where(category: 'news').last
+    # @business = Article.where(category: 'business').last
+    # @ent = Article.where(category: 'entertainment').last
+    # @tech = Article.where(category: 'tech').last
+    # @sports = Article.where(category: 'sports').last
+    # @op = Article.where(category: 'opinion').last
   end
 
   def new
@@ -16,8 +16,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @article = @user.articles.build(article_params)
+    @article = current_user.articles.build(article_params)
 
     if @article.save
       flash[:success] = 'Article created'
