@@ -102,6 +102,12 @@ h1 { text-align: center; }
   @include background-preferences;
 }
 
+.hidden {
+  height: 0px;
+  visibility: hidden;
+  width: 0px;
+}
+
 // footer
 
 footer {
@@ -155,4 +161,17 @@ footer {
     border-radius: 15px;
     padding: 1rem;
   }
+}
+
+// Article Show Page
+
+.show {
+  text-align: center;
+  img {
+    height: 400px;
+    width: 500px;
+  }
+}
+.article-content {
+  padding: 3rem;
 }

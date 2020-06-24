@@ -1,14 +1,30 @@
 class ArticlesController < ApplicationController
 
   def index
-    @articles = Article.all.with_attached_image
-    # @top = Article.last
-    # @news = Article.where(category: 'news').last
-    # @business = Article.where(category: 'business').last
-    # @ent = Article.where(category: 'entertainment').last
-    # @tech = Article.where(category: 'tech').last
-    # @sports = Article.where(category: 'sports').last
-    # @op = Article.where(category: 'opinion').last
+    @articles = Article.with_attached_image.all
+    @top = @articles[0]
+    # @news = Article.with_attached_image.where(category: 'news').last
+    # @business = Article.with_attached_image.where(category: 'business').last
+    # @ent = Article.with_attached_image.where(category: 'entertainment').last
+    # @tech = Article.with_attached_image.where(category: 'tech').last
+    # @sports = Article.with_attached_image.where(category: 'sports').last
+    # @op = Article.with_attached_image.where(category: 'opinion').last
+
+    @news = []
+    @business = []
+    @ent = []
+    @tech = []
+    @sports = []
+    @op = []
+
+    @articles.each do |article|
+      @news << article if article&.category == 'news'
+      @business << article if article&.category == 'business'
+      @ent << article if article&.category == 'entertainment'
+      @tech << article if article&.category == 'tech'
+      @sports << article if article&.category == 'sports'
+      @op << article if article&.category == 'opinion'
+    end
   end
 
   def new
