@@ -1,6 +1,7 @@
 <div class="show">
   <p><%= @article.title %></p>
   <p><%= @article.votes.size %></p>
+  <p><%= @article.impressionist_count %></p>
 
   <% current_vote = @article.votes.find { |vote| vote.user_id == current_user.id } %>
   <% user_article = Article.where { |article| article.user_id == current_user.id } %>

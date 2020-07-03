@@ -1,14 +1,9 @@
 class ArticlesController < ApplicationController
+  impressionist :actions => [:show]
 
   def index
     @articles = Article.with_attached_image.all
     @top = @articles[0]
-    # @news = Article.with_attached_image.where(category: 'news').last
-    # @business = Article.with_attached_image.where(category: 'business').last
-    # @ent = Article.with_attached_image.where(category: 'entertainment').last
-    # @tech = Article.with_attached_image.where(category: 'tech').last
-    # @sports = Article.with_attached_image.where(category: 'sports').last
-    # @op = Article.with_attached_image.where(category: 'opinion').last
 
     @news = []
     @business = []
@@ -45,6 +40,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @votes = @article.votes
+    impressionist(@article)
   end
 
   def news
