@@ -1,30 +1,26 @@
 <div class="grid-container">
   <div class="main" style="background-image: url(<%= (url_for(@top.image)) %>)">
-    <% if @top %>
-      <div class="top-article" >
-        <h2><%= @top.title %></h2>
-        <p><%= link_to "Read more..." %></p>
-      </div>
-    <% else %>
-      <div>Testing top voted article functionality...</div>
-    <% end %>
+  <div class="top-article" >
+    <h2><%= @top.title %></h2>
+    <p><%= link_to "Read more..." %></p>
   </div>
-  <div class="sports" style="background-image: url(<%= (url_for(@sports.image)) %>)">
+  </div>
+  <div class="sports" style="background-image: url(<%= (url_for(@sports[0].image)) %>)">
     <h2><%= link_to "Sports", sports_path %></h2>
   </div>
-  <div class="tech" style="background-image: url(<%= (url_for(@tech.image)) %>)">
+  <div class="tech" style="background-image: url(<%= (url_for(@tech[0].image)) %>)">
     <h2><%= link_to "Technology", tech_path %></h2>
   </div>
-  <div class="opinion" style="background-image: url(<%= (url_for(@op.image)) %>)">
+  <div class="opinion" style="background-image: url(<%= (url_for(@op[0].image)) %>)">
     <h2><%= link_to "Opinion", opinion_path %></h2>
   </div>
-  <div class="entertainment" style="background-image: url(<%= (url_for(@ent.image)) %>)">
+  <div class="entertainment" style="background-image: url(<%= (url_for(@ent[0].image)) %>)">
     <h2><%= link_to "Entertainment", entertainment_path %></h2>
   </div>
-  <div class="business" style="background-image: url(<%= (url_for(@business.image)) %>)">
+  <div class="business" style="background-image: url(<%= (url_for(@business[0].image)) %>)">
     <h2><%= link_to "Business", business_path %></h2>
   </div>
-  <div class="news" style="background-image: url(<%= (url_for(@news.image)) %>)">
+  <div class="news" style="background-image: url(<%= (url_for(@news[0].image)) %>)">
     <h2><%= link_to "News", news_path %></h2>
   </div>
 </div>

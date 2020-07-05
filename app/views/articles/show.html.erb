@@ -1,28 +1,31 @@
-<div>
+<div class="show">
   <p><%= @article.title %></p>
-  <p><%= @article.votes.count %></p>
+  <p><%= @article.votes.size %></p>
+  <p><%= @article.impressionist_count %></p>
 
   <% current_vote = @article.votes.find { |vote| vote.user_id == current_user.id } %>
   <% user_article = Article.where { |article| article.user_id == current_user.id } %>
 
-  <% if current_vote %>
-    <%= button_to 'Down-vote', article_vote_path(@article, current_vote), method: :delete %>
+  <% if current_user %>
+    <% if current_vote %>
+      <%= button_to 'Down-vote', article_vote_path(@article, current_vote), method: :delete %>
+    <% else %>
+      <%= button_to 'Up-vote', article_votes_path(@article), method: :post %>
+    <% end %>
   <% else %>
-    <%= button_to 'Up-vote', article_votes_path(@article), method: :post %>
+    <button class="hidden"></button>
   <% end %>
 
   <% if @article.image.attached? %>
     <img src="<%= (url_for(@article.image)) %>">
   <% end %>
 
-  <p><%= @article.category %></p>
 </div>
-<div>
+<div class="article-content">
   <p><%= @article.text %></p>
-</div>
-
-<div>
+  <div>
   <% if user_article %>
     <%= button_to 'Delete', article_path(@article, user_article), method: :delete %>
   <% end %>
+</div>
 </div>

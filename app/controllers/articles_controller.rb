@@ -1,14 +1,25 @@
 class ArticlesController < ApplicationController
+  impressionist :actions => [:show]
 
   def index
-    @articles = Article.all
-    @top = Article.last
-    @news = Article.where(category: 'news').last
-    @business = Article.where(category: 'business').last
-    @ent = Article.where(category: 'entertainment').last
-    @tech = Article.where(category: 'tech').last
-    @sports = Article.where(category: 'sports').last
-    @op = Article.where(category: 'opinion').last
+    @articles = Article.with_attached_image.all
+    @top = @articles[0]
+
+    @news = []
+    @business = []
+    @ent = []
+    @tech = []
+    @sports = []
+    @op = []
+
+    @articles.each do |article|
+      @news << article if article&.category == 'news'
+      @business << article if article&.category == 'business'
+      @ent << article if article&.category == 'entertainment'
+      @tech << article if article&.category == 'tech'
+      @sports << article if article&.category == 'sports'
+      @op << article if article&.category == 'opinion'
+    end
   end
 
   def new
@@ -16,8 +27,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @article = @user.articles.build(article_params)
+    @article = current_user.articles.build(article_params)
 
     if @article.save
       flash[:success] = 'Article created'
@@ -30,6 +40,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @votes = @article.votes
+    impressionist(@article)
   end
 
   def news
