@@ -1,8 +1,6 @@
 @import './mixins';
 @import './variables';
-// * {
-//   border: 0.25rem solid !important;
-// }
+
 body {
   background-color: $main-area;
   font-family: cursive;
@@ -16,6 +14,11 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: -1.4rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  @include box-shadow;
   ul {
     list-style: none;
     li {
@@ -29,7 +32,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: purple;
+  color: rgb(189, 3, 189);
   font-size: 101%;
 }
 .logo {
@@ -59,6 +62,7 @@ h1 { text-align: center; }
   grid-template-rows: 1fr 1fr 1fr;
   gap: 1px 1px;
   grid-template-areas: "main main main sports" "main main main tech" "news business entertainment opinion";
+  margin-top: 3.4rem;
   a {
     color: white;
     margin-left: 1rem;
@@ -117,11 +121,18 @@ footer {
   position: fixed;
   text-align: center;
   width: 100%;
+  @include box-shadow
 }
 
 // Forms
 
 .form-area {
+  background-image: asset_url('login-bg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90vh;
+  padding-top: 5rem;
   text-align: center;
   form {
     margin: 0 auto;
@@ -134,6 +145,7 @@ footer {
       margin-bottom: 2.5rem;
       padding: 0.5rem;
       width: 50%;
+      @include input-shadow;
     }
     select {
       border: 1px solid $border-shade;
@@ -147,6 +159,17 @@ footer {
       margin-bottom: 2.5rem;
     }
   }
+}
+.form-area::before {
+  background: linear-gradient($main-background, rgba(255, 250, 236, 0.3));
+  content: "";
+  height: 100%;
+  left: 0;
+  mix-blend-mode: color;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 // Category Pages

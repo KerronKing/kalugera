@@ -4,6 +4,12 @@
   box-shadow: -2px 0px 33px 0px rgba(166,164,166,1);
 }
 
+@mixin input-shadow {
+  -webkit-box-shadow: 0px 2px 25px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 2px 25px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 25px 0px rgba(0,0,0,0.75);
+}
+
 @mixin background-preferences {
   background-position: center;
   background-repeat: no-repeat;
