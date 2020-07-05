@@ -189,12 +189,28 @@ footer {
 // Article Show Page
 
 .show {
+  padding-top: 5rem;
   text-align: center;
-  img {
-    height: 400px;
-    width: 500px;
+  .art-img {
+    height: 450px;
+    width: 700px;
   }
 }
+.counts {
+  left: 10%;
+  position: fixed;
+  top: 40%;
+  width: 5%;
+  svg {
+    margin-top: 1.3rem;
+  }
+}
+.votes {
+  @include flex;
+}
+.views {
+  @include flex;
+}
 .article-content {
-  padding: 3rem;
+  padding: 3rem 16rem 3rem 18rem;
 }
