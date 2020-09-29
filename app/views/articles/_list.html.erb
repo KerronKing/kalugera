@@ -5,7 +5,7 @@
       <% if article.image.attached? %>
         <img src="<%= (url_for(article.image)) %>">
       <% end %>
-      <p>Written by: <%= article.user.first_name %> <%= article.user.last_name %></p>
+      <p>Written by: <%= article.author.first_name %> <%= article.author.last_name %></p>
       </div>
   <% end %>
 </div>
