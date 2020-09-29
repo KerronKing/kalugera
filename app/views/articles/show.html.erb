@@ -1,5 +1,6 @@
 <div class="show">
   <h1><%= @article.title %></h1>
+  <h3><%= @article.author.first_name %> <%= @article.author.last_name %></h3>
   <div class="counts">
     <div class="votes">
       <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-hand-thumbs-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -37,9 +38,4 @@
 </div>
 <div class="article-content">
   <p><%= @article.text %></p>
-  <div>
-  <% if user_article %>
-    <%= button_to 'Delete', article_path(@article, user_article), method: :delete %>
-  <% end %>
-</div>
 </div>
