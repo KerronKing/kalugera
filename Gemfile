@@ -25,6 +25,7 @@ gem 'rubocop'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'aws-sdk'
 gem 'impressionist'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

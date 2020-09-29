@@ -17,7 +17,7 @@ news_article = Article.new(
   text: Faker::Lorem.paragraph(sentence_count: 15, supplemental: true),
   category: 'news'
 )
-news_article.user = user
+news_article.author = user
 news_article.image.attach(
   io: File.open('app/assets/images/news.jpg'),
   filename: 'nw.jpg'
@@ -29,7 +29,7 @@ business_article = Article.new(
   text: Faker::Lorem.paragraph(sentence_count: 15, supplemental: true),
   category: 'business'
 )
-business_article.user = user
+business_article.author = user
 business_article.image.attach(
   io: File.open('app/assets/images/business.jpg'),
   filename: 'bus.jpg'
@@ -41,7 +41,7 @@ ent_article = Article.new(
   text: Faker::Lorem.paragraph(sentence_count: 15, supplemental: true),
   category: 'entertainment'
 )
-ent_article.user = user
+ent_article.author = user
 ent_article.image.attach(
   io: File.open('app/assets/images/entertainment.jpg'),
   filename: 'ent.jpg'
@@ -53,7 +53,7 @@ tech_article = Article.new(
   text: Faker::Lorem.paragraph(sentence_count: 15, supplemental: true),
   category: 'tech'
 )
-tech_article.user = user
+tech_article.author = user
 tech_article.image.attach(
   io: File.open('app/assets/images/tech.jpg'),
   filename: 'te.jpg'
@@ -65,7 +65,7 @@ sports_article = Article.new(
   text: Faker::Lorem.paragraph(sentence_count: 15, supplemental: true),
   category: 'sports'
 )
-sports_article.user = user
+sports_article.author = user
 sports_article.image.attach(
   io: File.open('app/assets/images/sports.jpg'),
   filename: 'sp.jpg'
@@ -77,7 +77,7 @@ op_article = Article.new(
   text: Faker::Lorem.paragraph(sentence_count: 15, supplemental: true),
   category: 'opinion'
 )
-op_article.user = user
+op_article.author = user
 op_article.image.attach(
   io: File.open('app/assets/images/opinion.jpg'),
   filename: 'op.jpg'
