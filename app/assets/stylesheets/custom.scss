@@ -238,19 +238,37 @@ footer {
     padding: 0.75rem;
     ul { display: none; }
   }
-  .responsive nav ul { 
+  nav.responsive ul {
     display: block;
     position: absolute;
-    right: 0;
+    right: 0.5rem;
+    top: 2rem;
   }
-  .responsive ul li {
-    display: initial;
+  nav.responsive ul li {
+    background-color: $main-background;
+    display: block;
+    padding: 0.5rem;
+    width: 120%;
+    &:hover {
+      background-color: black;
+      color: $main-background;
+    }
+    a {
+      color: black;
+    }
   }
   .logo { top: 0; }
   .logs { display: none; }
-  .logs .responsive {
+  nav.responsive .logs {
+    background-color: $main-background;
     display: flex;
     flex-direction: column;
+    padding: 0.5rem;
+    position: absolute;
+    right: 1.17rem;
+    top: 18rem;
+    width: 11%;
+    span { padding-bottom: 1rem; }
   }
   .toggle {
     display: block;
