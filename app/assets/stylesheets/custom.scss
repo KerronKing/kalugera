@@ -6,6 +6,7 @@ body {
   font-family: cursive;
   margin: 0;
   padding: 0;
+  width: 100vw;
 }
 
 // Header
@@ -67,7 +68,11 @@ h2 { font-size: 2.2rem; }
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 1px 1px;
-  grid-template-areas: "main main main sports" "main main main tech" "news business entertainment opinion";
+  grid-template-areas:
+    "main main main sports"
+    "main main main tech"
+    "news business entertainment opinion";
+  min-height: 100vh;
   margin-top: 3.4rem;
   a {
     color: white;
@@ -84,7 +89,6 @@ h2 { font-size: 2.2rem; }
 .main {
   color: white;
   grid-area: main;
-  height: 26.5rem;
   @include background-preferences;
 }
 
@@ -128,11 +132,9 @@ h2 { font-size: 2.2rem; }
 
 footer {
   background-color: $main-background;
-  bottom: 0;
   line-height: 2;
-  position: fixed;
+  overflow: hidden;
   text-align: center;
-  width: 100%;
   @include box-shadow
 }
 
@@ -143,7 +145,7 @@ footer {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 90vh;
+  height: 100vh;
   padding-top: 5rem;
   text-align: center;
   form {
@@ -272,5 +274,41 @@ footer {
   }
   .toggle {
     display: block;
+  }
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.6fr 0.9fr 0.9fr 1fr;
+    grid-template-areas:
+      "main main"
+      "news business"
+      "sports entertainment"
+      "tech opinion";
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .logo span { font-size: 2rem; }
+
+  input {
+    padding: 1rem;
+  }
+
+  footer {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.6fr 0.9fr 0.9fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "main"
+      "news"
+      "business"
+      "tech"
+      "sports"
+      "entertainment"
+      "opinion";
   }
 }

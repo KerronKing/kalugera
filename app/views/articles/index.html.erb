@@ -1,9 +1,9 @@
 <div class="grid-container">
   <div class="main" style="background-image: url(<%= (url_for(@top.image)) %>)">
-  <div class="top-article" >
-    <h2><%= @top.title %></h2>
-    <p><%= link_to "Read more...", article_path(@top) %></p>
-  </div>
+    <div>
+      <h2><%= @top.title %></h2>
+      <p><%= link_to "Read more...", article_path(@top) %></p>
+    </div>
   </div>
   <div class="sports" style="background-image: url(<%= (url_for(@sports[0].image)) %>)">
     <h2><%= link_to "Sports", sports_path %></h2>
