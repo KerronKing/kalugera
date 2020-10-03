@@ -75,19 +75,20 @@ h2 { font-size: 2.2rem; }
   min-height: 100vh;
   margin-top: 3.4rem;
   a {
-    color: white;
+    background-color: $main-background;
+    border-radius: 10px;
     font-size: 2rem;
     font-weight: bold;
     margin-left: 1rem;
+    padding: 0.2rem;
     &:hover {
-      color: rgb(78, 78, 133);
-      font-size: 2.1rem;
+      background-color: black;
+      color: $main-background;
     }
   }
 }
 
 .main {
-  color: white;
   grid-area: main;
   @include background-preferences;
 }
