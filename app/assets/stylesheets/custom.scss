@@ -1,9 +1,10 @@
 @import './mixins';
 @import './variables';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
   background-color: $main-area;
-  font-family: cursive;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -75,7 +76,7 @@ h2 { font-size: 2.2rem; }
   min-height: 100vh;
   margin-top: 3.4rem;
   a {
-    background-color: $main-background;
+    background-color: $link-background;
     border-radius: 10px;
     font-size: 2rem;
     font-weight: bold;
