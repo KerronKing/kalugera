@@ -280,28 +280,21 @@ footer {
   }
   .grid-container {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1.6fr 0.9fr 0.9fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr;
     grid-template-areas:
       "main main"
       "news business"
       "sports entertainment"
       "tech opinion";
+      min-height: 150vh;
   }
 }
 
 @media only screen and (max-width: 850px) {
   .logo span { font-size: 2rem; }
-
   input {
     padding: 1rem;
   }
-  // nav.responsive ul {
-  //   top: 3.5rem
-  // }
-  // nav.responsive .logs {
-  //   top: 17.65rem;
-  // }
-
   footer {
     font-size: 1rem;
   }
@@ -310,7 +303,7 @@ footer {
 @media only screen and (max-width: 768px) {
   .grid-container {
     grid-template-columns: 1fr;
-    grid-template-rows: 1.6fr 0.9fr 0.9fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
       "main"
       "news"
@@ -319,5 +312,6 @@ footer {
       "sports"
       "entertainment"
       "opinion";
+    min-height: 300vh;
   }
 }
