@@ -232,6 +232,7 @@ footer {
 }
 
 @media only screen and (max-width: 1024px) {
+  .logo span { font-size: 2rem; }
   #icon {
     background-color: transparent;
     border: none;
@@ -246,7 +247,7 @@ footer {
     display: block;
     position: absolute;
     right: 0.5rem;
-    top: 2rem;
+    top: 3.5rem;
   }
   nav.responsive ul li {
     background-color: $main-background;
@@ -269,8 +270,8 @@ footer {
     flex-direction: column;
     padding: 0.5rem;
     position: absolute;
-    right: 1.17rem;
-    top: 18rem;
+    right: 1.36rem;
+    top: 17.65rem;
     width: 6.93rem;
     span { padding-bottom: 1rem; }
   }
@@ -294,6 +295,12 @@ footer {
   input {
     padding: 1rem;
   }
+  // nav.responsive ul {
+  //   top: 3.5rem
+  // }
+  // nav.responsive .logs {
+  //   top: 17.65rem;
+  // }
 
   footer {
     font-size: 1rem;
