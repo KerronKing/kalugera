@@ -207,16 +207,19 @@ footer {
 .show {
   padding-top: 5rem;
   text-align: center;
-  .art-img {
-    height: 450px;
-    width: 700px;
+  img.art-img {
+    height: 55%;
+    width: 75%;
   }
 }
 .counts {
-  left: 10%;
-  position: fixed;
-  top: 40%;
-  width: 5%;
+  height: 110px;
+  // left: 45%;
+  margin: 0 auto;
+  position: relative;
+  top: 1vh;
+  width: 65px;
+  z-index: -1;
   svg {
     margin-top: 1.3rem;
   }
@@ -228,7 +231,7 @@ footer {
   @include flex;
 }
 .article-content {
-  padding: 3rem 16rem 3rem 18rem;
+  padding: 3rem;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -286,7 +289,10 @@ footer {
       "news business"
       "sports entertainment"
       "tech opinion";
-      min-height: 150vh;
+    min-height: 150vh;
+  }
+  .article-content {
+    font-size: 0.85rem;
   }
 }
 
@@ -313,5 +319,11 @@ footer {
       "entertainment"
       "opinion";
     min-height: 300vh;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .show {
+    img.art-img { height: 70%; }
   }
 }
