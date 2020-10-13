@@ -134,9 +134,12 @@ h2 { font-size: 2.2rem; }
 
 footer {
   background-color: $main-background;
+  bottom: 0;
   line-height: 2;
   overflow: hidden;
+  position: fixed;
   text-align: center;
+  width: 100%;
   @include box-shadow
 }
 
@@ -190,15 +193,32 @@ footer {
 
 // Category Pages
 
+.section-title {
+  border-bottom: 1px solid $border-shade;
+  margin-top: 4rem;
+  padding-bottom: 0.5rem;
+}
 .article-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  padding: 1rem;
   .article {
-    border: 1px solid $border-shade;
-    border-radius: 15px;
+    border-bottom: 1px solid $border-shade;
     padding: 1rem;
+    .article-align {
+      display: flex;
+      flex-direction: row;
+      img {
+        height: 100px;
+        width: 100px;
+      }
+      .article-heading {
+        bottom: 2rem;
+        padding-left: 1rem;
+        position: relative;
+        p {
+          bottom: 1rem;
+          position: relative;
+        }
+      }
+    }
   }
 }
 
@@ -214,7 +234,6 @@ footer {
 }
 .counts {
   height: 110px;
-  // left: 45%;
   margin: 0 auto;
   position: relative;
   top: 1vh;
@@ -294,6 +313,7 @@ footer {
   .article-content {
     font-size: 0.85rem;
   }
+  .section-title { margin-top: 6rem; }
 }
 
 @media only screen and (max-width: 850px) {
@@ -323,6 +343,7 @@ footer {
 }
 
 @media only screen and (max-width: 660px) {
+  .article-heading h2 { font-size: 2rem; }
   .show {
     img.art-img { height: 70%; }
   }
