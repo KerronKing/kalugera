@@ -1,9 +1,10 @@
 @import './mixins';
 @import './variables';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
   background-color: $main-area;
-  font-family: cursive;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -75,7 +76,7 @@ h2 { font-size: 2.2rem; }
   min-height: 100vh;
   margin-top: 3.4rem;
   a {
-    background-color: $main-background;
+    background-color: $link-background;
     border-radius: 10px;
     font-size: 2rem;
     font-weight: bold;
@@ -133,9 +134,12 @@ h2 { font-size: 2.2rem; }
 
 footer {
   background-color: $main-background;
+  bottom: 0;
   line-height: 2;
   overflow: hidden;
+  position: fixed;
   text-align: center;
+  width: 100%;
   @include box-shadow
 }
 
@@ -189,15 +193,32 @@ footer {
 
 // Category Pages
 
+.section-title {
+  border-bottom: 1px solid $border-shade;
+  margin-top: 4rem;
+  padding-bottom: 0.5rem;
+}
 .article-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  padding: 1rem;
   .article {
-    border: 1px solid $border-shade;
-    border-radius: 15px;
+    border-bottom: 1px solid $border-shade;
     padding: 1rem;
+    .article-align {
+      display: flex;
+      flex-direction: row;
+      img {
+        height: 100px;
+        width: 100px;
+      }
+      .article-heading {
+        bottom: 2rem;
+        padding-left: 1rem;
+        position: relative;
+        p {
+          bottom: 1rem;
+          position: relative;
+        }
+      }
+    }
   }
 }
 
@@ -206,16 +227,18 @@ footer {
 .show {
   padding-top: 5rem;
   text-align: center;
-  .art-img {
-    height: 450px;
-    width: 700px;
+  img.art-img {
+    height: 55%;
+    width: 75%;
   }
 }
 .counts {
-  left: 10%;
-  position: fixed;
-  top: 40%;
-  width: 5%;
+  height: 110px;
+  margin: 0 auto;
+  position: relative;
+  top: 1vh;
+  width: 65px;
+  z-index: -1;
   svg {
     margin-top: 1.3rem;
   }
@@ -227,10 +250,11 @@ footer {
   @include flex;
 }
 .article-content {
-  padding: 3rem 16rem 3rem 18rem;
+  padding: 3rem;
 }
 
 @media only screen and (max-width: 1024px) {
+  .logo span { font-size: 2rem; }
   #icon {
     background-color: transparent;
     border: none;
@@ -245,7 +269,7 @@ footer {
     display: block;
     position: absolute;
     right: 0.5rem;
-    top: 2rem;
+    top: 3.5rem;
   }
   nav.responsive ul li {
     background-color: $main-background;
@@ -268,8 +292,8 @@ footer {
     flex-direction: column;
     padding: 0.5rem;
     position: absolute;
-    right: 1.17rem;
-    top: 18rem;
+    right: 1.36rem;
+    top: 17.65rem;
     width: 6.93rem;
     span { padding-bottom: 1rem; }
   }
@@ -278,22 +302,25 @@ footer {
   }
   .grid-container {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1.6fr 0.9fr 0.9fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr;
     grid-template-areas:
       "main main"
       "news business"
       "sports entertainment"
       "tech opinion";
+    min-height: 150vh;
   }
+  .article-content {
+    font-size: 0.85rem;
+  }
+  .section-title { margin-top: 6rem; }
 }
 
 @media only screen and (max-width: 850px) {
   .logo span { font-size: 2rem; }
-
   input {
     padding: 1rem;
   }
-
   footer {
     font-size: 1rem;
   }
@@ -302,7 +329,7 @@ footer {
 @media only screen and (max-width: 768px) {
   .grid-container {
     grid-template-columns: 1fr;
-    grid-template-rows: 1.6fr 0.9fr 0.9fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
       "main"
       "news"
@@ -311,5 +338,13 @@ footer {
       "sports"
       "entertainment"
       "opinion";
+    min-height: 300vh;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .article-heading h2 { font-size: 2rem; }
+  .show {
+    img.art-img { height: 70%; }
   }
 }
